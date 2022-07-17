@@ -5,7 +5,6 @@
 #include <goshow.h>
 
 
-
 show *show_new(char *show_name, bool is_finish_watch){
     show *new = malloc(sizeof(show));
     new->show_name = show_name;
@@ -36,7 +35,7 @@ void show_print(show *in){
 }
 
 int main() {
-    show *ep1 = show_new("打工吧，魔王大人！", false);
+    show *ep1 = show_new("打工吧，魔王大人！第二季", false);
     show *ep2 = show_new("Spy x family", true);
 
     GList *list = NULL;
@@ -46,7 +45,7 @@ int main() {
     int list_length = g_list_length(list);
     int i;
     for(i = 0; i < list_length; i++){
-        show *ep = (show*)g_list_nth_data(list, i);
+        show *ep = g_list_nth_data(list, i);
         show_print(ep);
     }
 
